@@ -90,7 +90,7 @@ commonApp.post("/login", async (req, res) => {
   //set token to res header as httpOnly cookie
   res.cookie("token", signedToken, {
     httpOnly: true,
-    secure: false,
+    secure: true,
     sameSite: "none",
   });
   //remove password from user document
@@ -106,7 +106,7 @@ commonApp.get("/logout", (req, res) => {
   //delete token from cookie storage
   res.clearCookie("token", {
     httpOnly: true,
-    secure: false,
+    secure: true,
     sameSite: "lax",
   });
   //send res
@@ -134,7 +134,7 @@ commonApp.put("/password", verifyToken("USER", "AUTHOR", "ADMIN"), async (req, r
   let passwordOfToken=user.password
   //check the current password of req and user are not same
   let isVaild=await compare(passwordObj.currentPassword,passwordOfToken)
-  if(!isPasswordValid){
+  if(!isValid){
     return res.status(400).json({message:"Invalid current password"})
   }
   // hash new password
