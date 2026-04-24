@@ -7,7 +7,7 @@ function AdminProfile() {
   // fetch all users
   const getUsers = async () => {
     let res = await axios.get(
-      "http://localhost:5000/admin-api/users",
+      "https://blog-app-jc18.onrender.com/admin-api/users",
       { withCredentials: true }
     );
 
@@ -19,7 +19,7 @@ function AdminProfile() {
   // block / unblock
   const toggleBlock = async (user) => {
     await axios.put(
-      "http://localhost:5000/admin-api/block",
+      "https://blog-app-jc18.onrender.com/admin-api/block",
       {
         email: user.email,
         isUserActive: !user.isUserActive,

@@ -38,7 +38,7 @@ function WriteArticles() {
          //set loading true
          setLoading(true)
          //make POST req tp sav new artcile
-         let res=await axios.post("http://localhost:5000/author-api/article",articleObj,{withCredentials:true})
+         let res=await axios.post("https://blog-app-jc18.onrender.com/author-api/article",articleObj,{withCredentials:true})
          //navigate to AuthorArticles
          if(res.status===201){
            toast.success("Article published successfully")
