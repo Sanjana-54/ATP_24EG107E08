@@ -92,6 +92,7 @@ commonApp.post("/login", async (req, res) => {
     httpOnly: true,
     secure: true,
     sameSite: "none",
+    path: "/",
   });
   //remove password from user document
   let userObj = user.toObject();
@@ -107,7 +108,8 @@ commonApp.get("/logout", (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
     secure: true,
-    sameSite: "lax",
+    sameSite: "none",
+    path: "/",
   });
   //send res
   res.status(200).json({ message: "Logout success" });

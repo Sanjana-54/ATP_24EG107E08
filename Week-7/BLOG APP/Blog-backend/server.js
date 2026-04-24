@@ -15,7 +15,7 @@ config();
 const app=exp();
 //enable cors
 app.use(cors({
-  origin:['http://localhost:5173',
+  origin:[
     "https://atp-24-eg-107-e08-do9d.vercel.app"
   ],
   credentials:true
