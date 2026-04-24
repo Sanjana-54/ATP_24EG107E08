@@ -91,7 +91,7 @@ commonApp.post("/login", async (req, res) => {
   res.cookie("token", signedToken, {
     httpOnly: true,
     secure: false,
-    sameSite: "lax",
+    sameSite: "none",
   });
   //remove password from user document
   let userObj = user.toObject();
