@@ -1,0 +1,88 @@
+###Read all users
+GET http://localhost:4000/user-api/users
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtodXNoaUBtYWlsLmNjIiwiaWF0IjoxNzczNDA5MjA2LCJleHAiOjE3NzM0MTA3MDZ9.ffd1_Ja1f6WF7_PZaI2vOboUsgIzoyj724sVXQrBOME; Path=/; HttpOnly; SameSite=Lax
+
+###read user by id
+GET http://localhost:4000/user-api/user
+
+
+### Create a new user
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+    "username":"khushi",
+    "password":"khushi",
+    "email":"khushi@mail.cc",
+    "age":20
+}
+
+### Update user
+PUT http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+    "username":"khushi",
+    "password":"khushii",
+    "email":"khushi@mail.cc",
+    "age":20
+}
+
+### delete user
+DELETE http://localhost:4000/user-api/users/
+
+###user login
+POST http://localhost:4000/user-api/auth
+Content-Type: application/json
+
+{
+    "email":"khushi@mail.cc",
+    "password":"khushi"
+}
+
+
+###add product to user cart
+PUT http://localhost:4000/user-api/cart/product-id/69b413c6bd8960c52a9c038c
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtodXNoaUBtYWlsLmNjIiwiaWF0IjoxNzczNDA5MjA2LCJleHAiOjE3NzM0MTA3MDZ9.ffd1_Ja1f6WF7_PZaI2vOboUsgIzoyj724sVXQrBOME; Path=/; HttpOnly; SameSite=Lax
+
+
+###PRODUCT 
+
+###Read all products 
+GET http://localhost:4000/product-api/products
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtodXNoaUBtYWlsLmNjIiwiaWF0IjoxNzczNDA5MjA2LCJleHAiOjE3NzM0MTA3MDZ9.ffd1_Ja1f6WF7_PZaI2vOboUsgIzoyj724sVXQrBOME; Path=/; HttpOnly; SameSite=Lax
+
+###Read a product by id 
+GET http://localhost:4000/product-api/products/
+Cookie: 
+
+### Create a new product 
+POST http://localhost:4000/product-api/products
+Content-Type: application/json
+Cookie:
+
+{ 
+    "productId":1, 
+    "name":"Watch", 
+    "price":10000, 
+    "brand":"Titan"
+}
+
+
+### Update the product
+PUT http://localhost:4000/product-api/products/69b413c6bd8960c52a9c038c
+Content-Type: application/json
+Cookie: token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImtodXNoaUBtYWlsLmNjIiwiaWF0IjoxNzczNDA5MjA2LCJleHAiOjE3NzM0MTA3MDZ9.ffd1_Ja1f6WF7_PZaI2vOboUsgIzoyj724sVXQrBOME; Path=/; HttpOnly; SameSite=Lax
+
+{ 
+    "productId":1, 
+    "name":"Watch", 
+    "price":20000, 
+    "brand":"Titan"
+}
+
+
+### delete product
+DELETE http://localhost:4000/product-api/products
+
+

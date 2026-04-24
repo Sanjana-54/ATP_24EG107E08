@@ -1,0 +1,64 @@
+###Read all users
+GET http://localhost:3000/user-api/users
+
+###Read a user by id
+GET http://localhost:3000/user-api/users/1
+
+### Create a new user
+POST http://localhost:3000/user-api/users
+Content-Type: application/json
+
+{
+    "id":1,
+    "name":"Khushi",
+    "age":20
+}
+
+### 
+PUT http://localhost:3000/user-api/users
+Content-Type: application/json
+
+{
+    "id":1,
+    "name":"Khushi",
+    "age":25
+    
+}
+
+###
+DELETE http://localhost:3000/user-api/users/1
+
+
+###PRODUCT
+
+###Read all products
+GET http://localhost:3000/product-api/products
+
+###Read a product by brand
+GET http://localhost:3000/product-api/products/brand/Titan
+
+### Create a new product
+POST http://localhost:3000/product-api/products
+Content-Type: application/json
+
+{
+    "id":1,
+    "name":"Watch",
+    "brand":"Titan",
+    "price":9000
+}
+
+### 
+PUT http://localhost:3000/product-api/products
+Content-Type: application/json
+
+{
+    "id":1,
+    "name":"Watch",
+    "brand":"Fastrack",
+    "price":8000
+}
+
+###
+DELETE http://localhost:3000/product-api/products/1
+
