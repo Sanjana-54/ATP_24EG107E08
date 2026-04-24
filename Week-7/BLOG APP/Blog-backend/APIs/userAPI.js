@@ -1,6 +1,6 @@
 import exp from 'express'
 import {articleModel} from "../models/articleModel.js"
-import { verifyToken } from '../middlewares/VerifyToken.js'
+import { verifyToken } from '../middlewares/verifyToken.js'
 export const userApp=exp.Router()
 
 //read articles of all authors

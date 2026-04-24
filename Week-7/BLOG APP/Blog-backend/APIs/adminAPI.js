@@ -1,5 +1,5 @@
 import {userModel} from '../models/userModel.js';
-import { verifyToken } from '../middlewares/VerifyToken.js';
+import { verifyToken } from '../middlewares/verifyToken.js';
 import exp from 'express'
 export const adminApp=exp.Router()
 
