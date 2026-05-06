@@ -18,14 +18,11 @@ commonApp.post("/users", upload.single("profileImageUrl"), async (req, res,next)
     let allowedRoles = ["USER", "AUTHOR"];
     //get user from req
     const newUser = req.body;
-    console.log(newUser);
-    console.log(req.file);
-
     //check role
     if (!allowedRoles.includes(newUser.role)) {
       return res.status(400).json({ message: "Invalid role" });
     }
-
+    let cloudinaryResult;
     //Upload image to cloudinary from memoryStorage
     if (req.file) {
       cloudinaryResult = await uploadToCloudinary(req.file.buffer);
@@ -56,11 +53,12 @@ commonApp.post("/users", upload.single("profileImageUrl"), async (req, res,next)
 
 //Route for Login(USER, AUTHOR and ADMIN)
 commonApp.post("/login", async (req, res) => {
-  //console.log(req.body)
+  
   //get user cred obj
   const { email, password } = req.body;
   //find user by email
   const user = await userModel.findOne({ email: email });
+  console.log(user);
   //if use not found
   if (!user) {
     return res.status(400).json({ message: "Invalid email" });
@@ -102,6 +100,7 @@ commonApp.post("/login", async (req, res) => {
   res.status(200).json({ message: "login success", payload: userObj });
 });
 
+
 //Route for Logout
 commonApp.get("/logout", (req, res) => {
   //delete token from cookie storage
@@ -135,7 +134,7 @@ commonApp.put("/password", verifyToken("USER", "AUTHOR", "ADMIN"), async (req, r
   let user=await userModel.findById(userIdOfToken)
   let passwordOfToken=user.password
   //check the current password of req and user are not same
-  let isVaild=await compare(passwordObj.currentPassword,passwordOfToken)
+  let isValid=await compare(passwordObj.currentPassword,passwordOfToken)
   if(!isValid){
     return res.status(400).json({message:"Invalid current password"})
   }

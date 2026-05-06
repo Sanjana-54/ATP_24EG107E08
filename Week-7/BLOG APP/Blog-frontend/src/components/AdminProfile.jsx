@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import UsersList from "./UsersList";
+import AuthorList from "./AuthorList";
 
 function AdminProfile() {
   const [users, setUsers] = useState([]);

@@ -15,7 +15,7 @@ function Header() {
 
   // decide profile route based on role
   const getProfilePath = () => {
-     console.log("USER:", user);
+    
     if (!user) return "/";
 
     switch (user.role) {

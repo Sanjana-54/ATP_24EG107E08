@@ -12,6 +12,8 @@ import WriteArticles from "./components/WriteArticles";
 import ArticleByID from "./components/ArticleByID";
 import Unauthorized from "./components/Unauthorized";
 import AdminProfile from "./components/AdminProfile";
+import UsersList from "./components/UsersList";
+import AuthorList from "./components/AuthorList";
 import {Toaster} from 'react-hot-toast'
 
 function App() {
