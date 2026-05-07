@@ -6,7 +6,7 @@ function Home() {
       {/* ARTICLES SECTION */}
       <div className="min-h-screen px-6 sm:px-10 md:px-16 lg:px-24 py-10 flex flex-col items-start">
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-6 text-blue-800 max-w-5xl text-left">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mt-6 text-blue-800max-w-5xl text-left">
           Discover Stories, Ideas & Inspiration
         </h1>
 
