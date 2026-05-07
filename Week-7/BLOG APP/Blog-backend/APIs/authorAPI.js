@@ -38,6 +38,15 @@ authorApp.get("/articles",verifyToken("AUTHOR"),async(req,res)=>{
      return res.status(200).json({message:"articles",payload:articleList})
 });
 
+// GET ALL ARTICLES FOR HOMEPAGE
+authorApp.get("/all-articles", async (req, res) => {
+
+    // get all active articles
+    const articles = await articleModel.find({ isArticleActive: true }).sort({ createdAt: -1 });
+    // send response
+    res.status(200).json({message: "All articles",payload: articles,});
+});
+
 //edit article
 authorApp.put("/articles",verifyToken("AUTHOR"),async(req,res)=>{
 //get author id from decoded token
