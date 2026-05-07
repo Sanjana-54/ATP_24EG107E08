@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { NavLink ,useNavigate} from "react-router";
 import { useAuth } from "../Store/AuthStore"
 import {
   navbarClass,
@@ -12,6 +12,8 @@ import {
 function Header() {
   const isAuthenticated = useAuth((state) => state.isAuthenticated);
   const user = useAuth((state) => state.currentUser);
+  const logout = useAuth((state) => state.logout);
+  const navigate = useNavigate();
 
   // decide profile route based on role
   const getProfilePath = () => {
@@ -28,13 +30,20 @@ function Header() {
     }
   };
 
+  const handleLogout = async () => {
+
+  await logout();
+
+  navigate("/");
+};
+
   return (
     <nav className={navbarClass}>
       <div className={navContainerClass}>
 
         {/* LOGO */}
         <NavLink to="/" className={navBrandClass}>
-          MyBlog
+           Blog
         </NavLink>
 
         <ul className={navLinksClass}>
@@ -80,18 +89,30 @@ function Header() {
           )}
 
           {/* LOGGED IN */}
-          {isAuthenticated && (
-            <li>
-              <NavLink
-                to={getProfilePath()}
-                className={({ isActive }) =>
-                  isActive ? navLinkActiveClass : navLinkClass
-                }
-              >
-                Profile
-              </NavLink>
-            </li>
-          )}
+
+{isAuthenticated && (
+  <>
+    <li>
+      <NavLink
+        to={getProfilePath()}
+        className={({ isActive }) =>
+          isActive ? navLinkActiveClass : navLinkClass
+        }
+      >
+        Profile
+      </NavLink>
+    </li>
+
+    <li>
+      <button
+        onClick={handleLogout}
+        className={navLinkClass}
+      >
+        Logout
+      </button>
+    </li>
+  </>
+)}
 
         </ul>
       </div>

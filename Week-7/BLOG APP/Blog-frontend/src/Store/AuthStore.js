@@ -79,7 +79,6 @@ export const useAuth = create((set) => ({
       }
 
       // other errors
-      console.log(err);
       set({ loading: false });
     }
   },

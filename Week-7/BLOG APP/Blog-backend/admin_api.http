@@ -1,5 +1,3 @@
-
-
 ### ADMIN LOGIN
 POST http://localhost:5000/auth/login
 Content-Type: application/json
