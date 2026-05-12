@@ -1,0 +1,127 @@
+/*RESET*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Navbar */
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: white;
+}
+
+/* Logo */
+.logo{
+    color: #12355b;
+    font-size: 18px;
+}
+
+/* Nav Links */
+.nav-links{
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: #2ec4b6;
+    font-size: 14px;
+}
+
+/* Hero Section */
+.hero{
+    background-color: #35c9c3;
+    text-align: center;
+    color: white;
+    padding: 25px 20px;
+}
+
+/* Hero Image */
+.hero-image{
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+/* Hero Heading */
+.hero h1{
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+/* Hero Text */
+.hero p{
+    font-size: 16px;
+}
+
+/* Content Section */
+.content{
+    display: flex;
+    gap: 30px;
+    padding: 30px 40px;
+}
+
+/* Boxes */
+.box{
+    flex: 1;
+}
+
+/* Headings */
+.box h2{
+    color: #12355b;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+/* Paragraphs */
+.box p{
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Food Image */
+.food-image{
+    width: 100%;
+    max-width: 260px;
+    background-color: #35c9c3;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px){
+
+    .navbar{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .content{
+        flex-direction: column;
+    }
+
+    .hero h1{
+        font-size: 26px;
+    }
+
+    .hero p{
+        font-size: 14px;
+    }
+}

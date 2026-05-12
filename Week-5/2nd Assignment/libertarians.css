@@ -1,0 +1,176 @@
+/*RESET*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY STYLING */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1e1e1e;
+  color: white;
+  min-height: 100vh;
+}
+
+/* MAIN CONTAINER */
+
+.container {
+  width: 100%;
+}
+
+/* TOP BAR */
+
+.top-bar {
+  background-color: white;
+  padding: 12px 20px;
+}
+
+.top-bar p {
+  color: #ff4d4d;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* MAIN SECTION */
+
+.main-section {
+  background-color: red;
+
+  /* Flexbox for left and right alignment */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 60px 50px;
+  gap: 20px;
+}
+
+/* Left Side Content */
+.main-content {
+  max-width: 500px;
+}
+
+.main-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.main-content p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* Right Side Icon */
+.main-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Circular Icon */
+.circle-icon {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+/* IMAGE STYLING */
+.circle-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CARDS SECTION */
+
+.cards-section {
+  display: grid;
+
+  /* 3 Equal Columns */
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Individual Card */
+.card {
+  background-color: #5e0000;
+  padding: 35px 25px;
+
+  border-right: 2px solid red;
+}
+
+/* Remove last border */
+.card:last-child {
+  border-right: none;
+}
+
+.card h3 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.card p {
+  line-height: 1.7;
+  color: #dddddd;
+  margin-bottom: 15px;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablet View */
+@media (max-width: 768px) {
+
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 38px;
+  }
+
+  .cards-section {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    border-right: none;
+    border-bottom: 2px solid red;
+  }
+
+  .card:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 480px) {
+
+  .hero-section {
+    padding: 40px 25px;
+  }
+
+  .hero-content h1 {
+    font-size: 30px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .circle-icon {
+    width: 90px;
+    height: 90px;
+    font-size: 45px;
+  }
+
+  .card {
+    padding: 25px 20px;
+  }
+}
