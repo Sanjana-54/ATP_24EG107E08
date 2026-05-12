@@ -45,4 +45,13 @@ Content-Type: application/json
   "newPassword":""
 }
 
+### Forgot Password
+PUT http://localhost:5000/auth/forgot-password
+Content-Type: application/json
+
+{
+  "email":"abc@gmail.com",
+  "newPassword":"123456"
+}
+
 

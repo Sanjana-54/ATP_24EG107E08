@@ -147,3 +147,23 @@ commonApp.put("/password", verifyToken("USER", "AUTHOR", "ADMIN"), async (req, r
   //send res
   res.status(200).json({message:"Password changed successfully"})
 });
+
+commonApp.put("/forgot-password", async (req, res) => {
+  const { email, newPassword } = req.body;
+  //find user
+  const user = await userModel.findOne({ email });
+  //if user not found
+  if (!user) {
+    return res.status(400).json({ message: "User not found" });
+  }
+  //hash new password
+  const hashedPassword = await hash(newPassword, 12);
+  //update password
+  user.password = hashedPassword;
+  //save updated password
+  await user.save();
+  //send response
+  res.status(200).json({
+    message: "Password updated successfully",
+  });
+});

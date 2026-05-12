@@ -13,6 +13,7 @@ import ArticleByID from "./components/ArticleByID";
 import Unauthorized from "./components/Unauthorized";
 import AdminProfile from "./components/AdminProfile";
 import UsersList from "./components/UsersList";
+import ForgotPassword from "./components/ForgotPassword";
 import AuthorList from "./components/AuthorList";
 import {Toaster} from 'react-hot-toast'
 
@@ -83,6 +84,10 @@ function App() {
         {
           path:"unauthorized",
           element:<Unauthorized/>,
+        },
+        {
+          path:"forgot-password",
+          element:<ForgotPassword/>,
         }
       ],
     },
