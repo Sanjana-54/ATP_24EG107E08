@@ -24,7 +24,6 @@ export const useAuth = create((set) => ({
         });
       }
     } catch (err) {
-      console.log("err is ", err);
       toast.error(err.response.data.message)
       set({
         loading: false,
