@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import axios from "axios";
+import  {toast} from "react-hot-toast"
 
 export const useAuth = create((set) => ({
   currentUser: null,
@@ -24,12 +25,13 @@ export const useAuth = create((set) => ({
       }
     } catch (err) {
       console.log("err is ", err);
+      toast.error(err.response.data.message)
       set({
         loading: false,
         isAuthenticated: false,
         currentUser: null,
         //error: err,
-        error: err.response?.data?.error || "Login failed",
+        error: err.response?.data?.message || "Login failed",
       });
     }
   },
