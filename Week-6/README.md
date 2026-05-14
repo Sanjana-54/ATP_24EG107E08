@@ -10,8 +10,8 @@ Week 6 focuses on scaling up React applications and integrating them with backen
 
 ```text
 Week-6/
-├── AddUser/               # Basic React user addition application
-├── User-Form/             # Advanced React form validation application
+├── UserDashboard/         # Basic React user addition application
+├── Form-data-into-table/  # Advanced React form validation application
 └── Emp App/               # Full-Stack Employee Management Application
     ├── Emp_Backend/       # Express/MongoDB backend API
     └── react-frontend/    # React/Vite frontend application
@@ -19,10 +19,10 @@ Week-6/
 
 ## Projects Detail
 
-### 1. AddUser
+### 1. UserDashboard
 A foundational React application built with Vite and styled using Tailwind CSS. This project serves as an introduction to basic state management and user interactions within a React component architecture.
 
-### 2. User-Form
+### 2. Form-data-into-table
 This project elevates form handling in React by integrating the `react-hook-form` library. It demonstrates how to efficiently manage form state, implement complex validation rules, and handle form submission while maintaining optimal performance and minimal re-renders.
 
 ### 3. Emp App (Employee Management Application)
@@ -32,12 +32,12 @@ A comprehensive full-stack application demonstrating the integration of a React 
 
 ## How to Run
 
-### Running React Frontend Projects (`AddUser` & `User-Form`)
+### Running React Frontend Projects (`UserDashboard` & `Form-data-into-table`)
 1. Navigate to the desired project directory:
    ```bash
-   cd AddUser
+   cd UserDashboard
    # OR
-   cd User-Form
+   cd Form-data-into-table
    ```
 2. Install the necessary dependencies:
    ```bash
