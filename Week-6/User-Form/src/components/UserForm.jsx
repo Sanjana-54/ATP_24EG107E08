@@ -2,40 +2,56 @@ import {useState}  from 'react'
 import {useForm} from 'react-hook-form'
 
 function UserForm(){
+    // State to store all users
     const[users,setUsers]=useState([]);
+    // React Hook Form
     const {
         register, //to register form fields
         handleSubmit, //to handle for submission 
         formState:{errors}//to handle validation
     }=useForm();
 
-    //form submit fn
+    //form submit function
     const onFormSubmit=(obj)=>{
+        // Check if user already exists using email
+    const userExists = users.some(
+      (user) => user.email.toLowerCase() === obj.email.toLowerCase()
+    );
+
+    // If duplicate user exists
+    if (userExists) {
+      alert("User with this email already exists!");
+      return;
+    }
         console.log(obj);
         setUsers([...users, obj]);
     }
     return(
-        <div>
-            <h1 className='text-3xl text-cyan-800 font-bold text-center mt-10'>Form</h1>
-        <form className="max-w-md mx-auto mt-10" onSubmit={handleSubmit(onFormSubmit)}>
+        <div className="min-h-screen bg-gray-100 p-4">
+          {/* Heading */}
+            <h1 className='text-3xl text-cyan-800 font-bold text-center mt-2'>User Form</h1>
+          {/* Form */}
+        <form className="max-w-md mx-auto mt-4" onSubmit={handleSubmit(onFormSubmit)}>
              
-             <div>
-                <label htmlFor="firstname">Firstname</label>
-                <input type="text" {...register("firstname",{
-                    required:"firstname required",
+             {/* Name */}
+             <div className="mb-4">
+                <label htmlFor="name">Name</label>
+                <input type="text" {...register("name",{
+                    required:"Name required",
                     validate:(v)=>v.trim().length!==0|| "White space isn't valid"
                    
                 })}
-                id="firstname"
+                id="name"
                 className='border w-full p-3'></input>
 
                 {/* FIRSTNAME VALIDATION ERROR MESSAGE */}
-                {errors.firstname?.type==="required" && <p className='text-red-700'>{errors.firstname.message}</p>}
+                {errors.name?.type==="required" && <p className='text-red-700'>{errors.name.message}</p>}
             </div>
-            <div>
-                <label htmlFor="email">email</label>
+             {/* Email */}
+            <div className="mb-4">
+                <label htmlFor="email">Email</label>
                 <input type="text" {...register("email",{
-                    required:"email required",
+                    required:"Email required",
                     validate:(v)=>v.trim().length!==0|| "White space isn't valid"
                  
                 })}
@@ -45,37 +61,40 @@ function UserForm(){
                 {/* EMAIL VALIDATION ERROR MESSAGE */}
                 {errors.email?.type==="required" && <p className='text-red-700'>{errors.email.message}</p>}
             </div>
-            <div>
-                <label htmlFor="dateofbirth">dateofbirth</label>
+
+           {/* Date of Birth */}
+            <div className="mb-4">
+                <label htmlFor="dateofbirth">Date of birth</label>
                 <input type="date" {...register("dateofbirth",{
-                    required:"dateofbirth required",
-                    validate:(v)=>v.trim().length!==0|| "White space isn't valid"
-                 
-                })}
+                    required:"Dateofbirth required",
+                  })}
                 id="dateofbirth"
                 className='border w-full p-3'></input>
                 {/* DOB VALIDATION ERROR MESSAGE */}
                 {errors.dateofbirth?.type==="required" && <p className='text-red-700'>{errors.dateofbirth.message}</p>}
             </div>
-            <button className='p-3 bg-pink-600 mt-3 '>Add user</button>
+
+             {/* Button */}
+            <button type="submit" className="bg-pink-600 text-white px-5 py-3 rounded w-full mt-3">Add user</button>
         </form>
-          <h1 className='text-3xl font-bold text-cyan-900 text-center'>List Of Users</h1>
+        {/* User List Heading */}
+          <h1 className='text-3xl font-bold text-cyan-900 text-center mt-8'>List Of Users</h1>
           
           {/* Table to display List of Users */}
-      <table className="mt-5 border mx-auto text-3xl">
-        <thead>
+      <table className="border mx-auto text-center mt-5">
+        <thead className="bg-cyan-700 text-white">
           <tr>
-            <th>First name</th>
-            <th>Email</th>
-            <th>Date Of Birth</th>
+            <th className="border p-3">Name</th>
+            <th className="border p-3">Email</th>
+            <th className="border p-3">Date Of Birth</th>
           </tr>
         </thead>
         <tbody>
           {users.map((userObj, index) => (
             <tr key={index}>
-              <td>{userObj.firstname}</td>
-              <td>{userObj.email}</td>
-              <td>{userObj.dateofbirth}</td>
+              <td className="border p-3">{userObj.name}</td>
+              <td className="border p-3">{userObj.email}</td>
+              <td className="border p-3">{userObj.dateofbirth}</td>
             </tr>
           ))}
         </tbody>
