@@ -20,14 +20,14 @@ function AuthorProfile() {
             />
           ) : (
             <div className="w-16 h-16 rounded-full bg-[#0066cc]/10 text-[#0066cc] flex items-center justify-center text-xl font-semibold">
-              {currentUser?.firstName?.charAt(0).toUpperCase()}
+              {currentUser?.firstname?.charAt(0).toUpperCase()}
             </div>
           )}
 
           {/* Name */}
           <div>
             <h2 className="text-xl font-semibold text-[#1d1d1f]">
-  Welcome back, {currentUser?.firstName}
+  Welcome back, {currentUser?.firstname}
   </h2>
   <p className="text-sm text-[#6e6e73] mt-1">
     Ready to write something amazing today?</p>

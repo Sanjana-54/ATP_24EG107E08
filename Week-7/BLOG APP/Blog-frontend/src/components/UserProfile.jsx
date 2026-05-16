@@ -15,8 +15,8 @@ import {
 } from "../styles/common.js";
 
 function UserProfile() {
-  const logout = useAuth((state) => state.logout);
   const currentUser = useAuth((state) => state.currentUser);
+  console.log(currentUser)
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
@@ -31,7 +31,7 @@ function UserProfile() {
         let res=await axios.get("https://blog-app-jc18.onrender.com/user-api/articles",{withCredentials:true})
         //update articles state
         if(res.status===200){
-          setArticles((await res).data.payload)
+          setArticles(res.data.payload)
         }
       } catch (err) {
         setError(err.response?.data?.error || "Something went wrong");
@@ -50,12 +50,6 @@ function UserProfile() {
       dateStyle: "medium",
       timeStyle: "short",
     });
-  };
-
-  const onLogout = async () => {
-    await logout();
-
-    navigate("/login");
   };
 
   const navigateToArticleByID = (articleObj) => {
@@ -86,14 +80,19 @@ function UserProfile() {
             />
           ) : (
             <div className="w-16 h-16 rounded-full bg-[#0066cc]/10 text-[#0066cc] flex items-center justify-center text-xl font-semibold">
-              {currentUser?.firstName?.charAt(0).toUpperCase()}
+              {currentUser?.firstname?.charAt(0).toUpperCase()}
             </div>
           )}
 
           {/* Name */}
           <div>
-             <h2 className="text-xl font-semibold text-[#1d1d1f]"> Welcome back, {currentUser?.firstName} </h2>
-          </div>
+           <h2 className="text-2xl font-semibold text-[#1d1d1f]">
+              Welcome back, {currentUser?.firstname}
+          </h2>
+          <p className="text-sm text-[#6e6e73] mt-1">
+    Explore the latest stories and ideas.
+  </p>
+</div>
         </div>
       </div>
 
