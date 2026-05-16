@@ -9,6 +9,8 @@ config();
 
 const app=exp();
 
+console.log("NEW SERVER CODE RUNNING");
+
 //add cors middleware
 app.use(
   cors(),
