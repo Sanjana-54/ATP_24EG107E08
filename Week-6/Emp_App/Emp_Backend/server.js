@@ -11,11 +11,7 @@ const app=exp();
 
 //add cors middleware
 app.use(
-  cors({
-    origin:["http://localhost:5173",
-      "https://employeemanagement-coral.vercel.app"
-    ],
-  }),
+  cors(),
 );
 
 
