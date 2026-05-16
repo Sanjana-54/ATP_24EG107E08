@@ -16,7 +16,7 @@ function Home() {
         </p>
 
         <h3 className="text-2xl font-semibold text-blue-400 mt-16 text-left">
-          Latest Articles
+          Log In To Find Latest Articles!!
         </h3>
     
              </div>

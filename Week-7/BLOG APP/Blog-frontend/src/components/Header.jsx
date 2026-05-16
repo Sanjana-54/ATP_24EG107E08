@@ -43,7 +43,7 @@ function Header() {
 
         {/* LOGO */}
         <NavLink to="/" className={navBrandClass}>
-           Blog
+           MyBlog
         </NavLink>
 
         <ul className={navLinksClass}>

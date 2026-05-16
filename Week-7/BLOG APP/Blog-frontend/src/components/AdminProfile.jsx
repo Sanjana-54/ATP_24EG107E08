@@ -54,11 +54,11 @@ function AdminProfile() {
 
           <button
             onClick={() => toggleBlock(user)}
-            className={`px-4 py-1 text-white ${
-              user.isUserActive ? "bg-green-600" : "bg-red-600"
+            className={`px-4 py-1 text-white rounded-lg${
+              user.isUserActive ? "bg-red-500" : "bg-green-600"
             }`}
           >
-            {user.isUserActive ? "Unblock" : "Block"}
+            {user.isUserActive ? "Block" : "Unblock"}
           </button>
         </div>
       ))}
