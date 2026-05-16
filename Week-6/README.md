@@ -14,7 +14,7 @@ Week-6/
 ├── Form-data-into-table/  # Advanced React form validation application
 └── Emp App/               # Full-Stack Employee Management Application
     ├── Emp_Backend/       # Express/MongoDB backend API
-    └── react-frontend/    # React/Vite frontend application
+    └── Emp_Frontend/      # React/Vite frontend application
 ```
 
 ## Projects Detail
@@ -27,8 +27,16 @@ This project elevates form handling in React by integrating the `react-hook-form
 
 ### 3. Emp App (Employee Management Application)
 A comprehensive full-stack application demonstrating the integration of a React frontend with an Express/MongoDB backend.
-- **Frontend (`react-frontend`)**: Built with React, Vite, and Tailwind CSS. It features client-side routing using `react-router`, robust form handling with `react-hook-form`, API communication via `axios`, and centralized state management utilizing `zustand`.
+
+- **Frontend (`react-frontend`)**: Built with React, Vite, and Tailwind CSS. It features client-side routing using `react-router`, robust form handling with `react-hook-form`, and API communication using `axios` and `fetch`.
+
 - **Backend (`Emp_Backend`)**: A robust Node.js and Express.js server providing RESTful API endpoints. It connects to a MongoDB database using `mongoose` and utilizes `cors` for cross-origin requests and `dotenv` for environment variable management.
+
+- **Context API Implementation**:
+  - Implemented global state management using React Context API.
+  - Shared counter state across multiple components such as `Header` and `Home`.
+  - Maintained synchronized state updates throughout the application.
+  - Integrated counter increment functionality during employee creation and through manual interaction.
 
 ## How to Run
 
@@ -69,7 +77,7 @@ This application requires both the backend and frontend servers to be running si
 **Terminal 2 (Frontend):**
 1. Navigate to the frontend directory:
    ```bash
-   cd "Emp App/react-frontend"
+   cd "Emp App/Emp_Frontend"
    ```
 2. Install dependencies:
    ```bash
@@ -82,6 +90,6 @@ This application requires both the backend and frontend servers to be running si
 
 ## Technologies Used
 
-- **Frontend**: React , Vite, Tailwind CSS , React Router, React Hook Form, Zustand, Axios
+- **Frontend**: React, Vite, Tailwind CSS, React Router, React Hook Form, Context API, Axios, Fetch API
 - **Backend**: Node.js, Express.js, MongoDB, Mongoose, CORS, dotenv
 - **Tooling**: npm

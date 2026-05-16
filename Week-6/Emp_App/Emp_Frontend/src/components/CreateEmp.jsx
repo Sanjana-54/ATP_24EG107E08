@@ -2,6 +2,7 @@ import {useForm} from "react-hook-form"
 import {useState} from 'react'
 import {useNavigate} from "react-router"
 import { useContext } from "react"
+import { counterContextObj } from "./context/ContextProvider";
 
 
 function CreateEmp() {
@@ -9,6 +10,7 @@ function CreateEmp() {
      const [loading, setLoading] = useState(false);
      const [error, setError] = useState("");
      const navigate = useNavigate();
+     const { changeCounter } = useContext(counterContextObj);
 
      const {register,
         handleSubmit,
@@ -26,6 +28,7 @@ const onFormSubmit=async (newEmpObj)=>{
         body: JSON.stringify(newEmpObj),
         });
         if (res.status === 201) {
+          changeCounter();
         //navigate to employees component programatically
         navigate("/list");
       } else {
@@ -116,7 +119,7 @@ const onFormSubmit=async (newEmpObj)=>{
                
                 {errors.companyName?.type==="required" && <p className='text-red-700'>{errors.companyName.message}</p>}
         </div>
-            <button type="submit" className='p-3 bg-pink-600 mt-3 w-full rounded-xl '>Add Emp</button>
+            <button type="submit" className='p-3 bg-pink-600 text-white mt-3 w-full rounded-xl '>Add Emp</button>
         </form>
    </div>
   );
