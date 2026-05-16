@@ -95,14 +95,6 @@ function UserProfile() {
              <h2 className="text-xl font-semibold text-[#1d1d1f]"> Welcome back, {currentUser?.firstName} </h2>
           </div>
         </div>
-
-        {/* LOGOUT */}
-        <button
-          className="bg-[#ff3b30] text-white text-sm px-5 py-2 rounded-full hover:bg-[#d62c23] transition"
-          onClick={onLogout}
-        >
-          Logout
-        </button>
       </div>
 
       {/* ARTICLES SECTION */}
