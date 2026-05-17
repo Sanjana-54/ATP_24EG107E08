@@ -9,13 +9,12 @@ config();
 
 const app=exp();
 
-console.log("NEW SERVER CODE RUNNING");
-
 //add cors middleware
 app.use(
-  cors(),
+  cors({
+    origin:['http://localhost:5173'],
+  })
 );
-
 
 //body parser middleware
 app.use(exp.json())
