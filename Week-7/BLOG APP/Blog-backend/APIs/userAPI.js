@@ -4,7 +4,7 @@ import { verifyToken } from '../middlewares/verifyToken.js'
 export const userApp=exp.Router()
 
 //read articles of all authors
-userApp.get("/articles",verifyToken("USER"),async(req,res)=>{
+userApp.get("/articles",verifyToken("USER","AUTHOR","ADMIN"),async(req,res)=>{
 //read articles
 const articlesList=await articleModel.find({isArticleActive:true});
 //send res

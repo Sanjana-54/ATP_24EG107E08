@@ -94,11 +94,10 @@ function Home() {
   }
 
   return (
-    <div className="min-h-screen px-4 sm:px-8 md:px-16 py-12">
-
+    <div className="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10 md:py-14">
       {/* BEFORE LOGIN */}
       {!isAuthenticated ? (
-        <div className="max-w-5xl">
+        <div className="max-w-4xl pt-10 md:pt-16">
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-blue-800 leading-tight">
             Discover Stories, Ideas & Inspiration
