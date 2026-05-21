@@ -39,22 +39,22 @@ export const submitBtn =
 // ─── Navbar ───────────────────────────────────────────
 
 export const navbarClass =
-  "bg-white border-b border-[#e8e8ed] px-4 md:px-8 h-[64px] flex items-center sticky top-0 z-50";
+  "bg-white border-b border-[#e8e8ed] sticky top-0 z-50";
 
 export const navContainerClass =
-  "max-w-7xl mx-auto w-full flex items-center justify-between";
+  "max-w-7xl mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between";
 
 export const navBrandClass =
-  "text-2xl font-bold text-[#1d1d1f] tracking-tight";
+  "text-3xl font-bold text-[#1d1d1f] tracking-tight";
 
 export const navLinksClass =
-  "flex items-center gap-3";
+  "flex items-center gap-5";
 
 export const navLinkClass =
-  "text-sm text-[#6e6e73] px-4 py-2 rounded-full transition-colors";
+  "text-sm text-[#6e6e73] px-5 py-2 rounded-full";
 
 export const navLinkActiveClass =
-  "bg-[#0066cc] text-white px-4 py-2 rounded-full text-sm font-medium";
+  "bg-[#0066cc] text-white px-5 py-2 rounded-full text-sm font-medium";
 
 // ─── Article / Blog ───────────────────────────────────
 //export const articleGrid        = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e8e8ed] border border-[#e8e8ed] rounded-2xl overflow-hidden"
