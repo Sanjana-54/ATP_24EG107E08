@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
-import { useAuth } from "../Store/AuthStore"
+import { useAuth } from "../Store/AuthStore";
 
 import {
   articleCardClass,
@@ -24,8 +24,7 @@ function AuthorArticles() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  console.log("user in author profile",user)
-  
+  // fetch author's articles
   useEffect(() => {
     if (!user) return;
 
@@ -33,15 +32,18 @@ function AuthorArticles() {
       setLoading(true);
 
       try {
-       //read articles of current author
-       let res= await axios.get("https://blog-app-jc18.onrender.com/author-api/articles",{withCredentials:true})
-       if(res.status===200){
+        let res = await axios.get(
+          "https://blog-app-jc18.onrender.com/author-api/articles",
+          { withCredentials: true }
+        );
+
+        if (res.status === 200) {
           setArticles(res.data.payload);
-         }
-       //update articles state
+        }
       } catch (err) {
-        console.log(err);
-        setError(err.response?.data?.error || "Failed to fetch articles");
+        setError(
+          err.response?.data?.error || "Failed to fetch articles"
+        );
       } finally {
         setLoading(false);
       }
@@ -50,46 +52,93 @@ function AuthorArticles() {
     getAuthorArticles();
   }, [user]);
 
+  // open article
   const openArticle = (article) => {
     navigate(`/article/${article._id}`, {
       state: article,
     });
   };
 
-  const formatDate = (date) => {
-    return new Date(date).toLocaleString("en-IN", {
-      timeZone: "Asia/Kolkata",
-      dateStyle: "medium",
-    });
-  };
+  // loading
+  if (loading) {
+    return (
+      <p className={loadingClass}>
+        Loading articles...
+      </p>
+    );
+  }
 
-  if (loading) return <p className={loadingClass}>Loading articles...</p>;
-  if (error) return <p className={errorClass}>{error}</p>;
+  // error
+  if (error) {
+    return (
+      <p className={errorClass}>
+        {error}
+      </p>
+    );
+  }
 
+  // empty
   if (articles.length === 0) {
-    return <div className={emptyStateClass}>You haven't published any articles yet.</div>;
+    return (
+      <div className={emptyStateClass}>
+        You haven't published any articles yet.
+      </div>
+    );
   }
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
       {articles.map((article) => (
-        <div key={article._id} className={`${articleCardClass} relative flex flex-col`}>
-          {/* Status Badge */}
-          <span className={article.isArticleActive ? articleStatusActive : articleStatusDeleted}>
-            {article.isArticleActive ? "ACTIVE" : "DELETED"}
+        <div
+          key={article._id}
+          className={`${articleCardClass} relative flex flex-col`}
+        >
+
+          {/* Status */}
+          <span
+            className={
+              article.isArticleActive
+                ? articleStatusActive
+                : articleStatusDeleted
+            }
+          >
+            {article.isArticleActive
+              ? "ACTIVE"
+              : "DELETED"}
           </span>
 
+          {/* Content */}
           <div className="flex flex-col gap-2">
-            <p className={articleMeta}>{article.category}</p>
 
-            <p className={articleTitle}>{article.title}</p>
+            <p className={articleMeta}>
+              {article.category}
+            </p>
 
-            <p className={articleExcerpt}>{article.content.slice(0, 60)}...</p>
+            <p className={articleTitle}>
+              {article.title}
+            </p>
+
+            <p className={articleExcerpt}>
+              {article.content.slice(0, 60)}...
+            </p>
+
+            <p className="text-xs text-[#a1a1a6] mt-1">
+              {Math.ceil(
+                article.content.split(" ").length / 200
+              )} min read
+            </p>
+
           </div>
 
-          <button className={`${ghostBtn} mt-auto pt-4`} onClick={() => openArticle(article)}>
+          {/* Button */}
+          <button
+            className={`${ghostBtn} mt-auto pt-4`}
+            onClick={() => openArticle(article)}
+          >
             Read Article →
           </button>
+
         </div>
       ))}
     </div>
