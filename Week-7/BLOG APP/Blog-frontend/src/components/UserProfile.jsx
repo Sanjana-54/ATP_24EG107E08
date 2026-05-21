@@ -103,13 +103,21 @@ function UserProfile() {
 
       {/* ARTICLES SECTION */}
       <div className="mt-4">
-        <input
-  type="text"
-  placeholder="Search articles..."
-  value={search}
-  onChange={(e) => setSearch(e.target.value)}
-  className={`${inputClass} mb-6`}
-/>
+        <div className="mb-6">
+  
+  <p className="text-sm text-[#6e6e73] mb-2">
+    Search Articles
+  </p>
+
+  <input
+    type="text"
+    placeholder="Search by title..."
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+    className={`${inputClass} w-full`}
+  />
+
+</div>
         <h3 className="text-lg font-semibold text-[#1d1d1f] mb-4">Latest Articles</h3>
 
         {/* EMPTY STATE */}
