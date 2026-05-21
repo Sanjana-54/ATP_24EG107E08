@@ -42,7 +42,7 @@ export const navbarClass =
   "bg-white border-b border-[#e8e8ed] sticky top-0 z-50";
 
 export const navContainerClass =
-  "max-w-7xl mx-auto px-6 md:px-10 h-[72px] flex items-center justify-between";
+  "w-full px-10 md:px-16 h-[72px] flex items-center justify-between";
 
 export const navBrandClass =
   "text-3xl font-bold text-[#1d1d1f] tracking-tight";
