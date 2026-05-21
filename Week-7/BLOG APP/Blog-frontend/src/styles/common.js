@@ -37,13 +37,24 @@ export const submitBtn =
   "w-full bg-[#0066cc] text-white font-semibold py-2.5 rounded-full hover:bg-[#004499] transition-colors cursor-pointer mt-2 text-sm tracking-tight";
 
 // ─── Navbar ───────────────────────────────────────────
+
 export const navbarClass =
-  "bg-white/85 backdrop-blur-xl backdrop-saturate-150 border-b border-[#e8e8ed] px-8 h-[52px] flex items-center sticky top-0 z-50";
-export const navContainerClass = "max-w-5xl mx-auto w-full flex flex-col sm:flex-row items-center justify-between gap-3";
-export const navBrandClass = "text-base font-semibold text-[#1d1d1f] tracking-tight";
-export const navLinksClass = "flex items-center flex-wrap justify-center gap-4 md:gap-7";
-export const navLinkClass = "text-[0.8rem] text-[#6e6e73] hover:text-[#1d1d1f] transition-colors font-normal";
-export const navLinkActiveClass = "text-[0.8rem] text-[#0066cc] font-medium";
+  "bg-white border-b border-[#e8e8ed] px-4 md:px-8 h-[64px] flex items-center sticky top-0 z-50";
+
+export const navContainerClass =
+  "max-w-7xl mx-auto w-full flex items-center justify-between";
+
+export const navBrandClass =
+  "text-2xl font-bold text-[#1d1d1f] tracking-tight";
+
+export const navLinksClass =
+  "flex items-center gap-3";
+
+export const navLinkClass =
+  "text-sm text-[#6e6e73] px-4 py-2 rounded-full transition-colors";
+
+export const navLinkActiveClass =
+  "bg-[#0066cc] text-white px-4 py-2 rounded-full text-sm font-medium";
 
 // ─── Article / Blog ───────────────────────────────────
 //export const articleGrid        = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e8e8ed] border border-[#e8e8ed] rounded-2xl overflow-hidden"
