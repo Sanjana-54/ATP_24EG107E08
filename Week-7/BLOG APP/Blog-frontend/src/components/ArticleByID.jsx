@@ -141,7 +141,7 @@ function ArticleByID() {
       <div className={articleHeader}>
         <span className={articleCategory}>{article.category}</span>
 
-        <h1 className={`${articleMainTitle} uppercase`}>{article.title}</h1>
+        <h1 className={articleMainTitle}>{article.title}</h1>
 
         <div className={articleAuthorRow}>
           <div className={authorInfo}>✍️ {user?.role}</div>
@@ -169,14 +169,14 @@ function ArticleByID() {
       {/* USER actions */}
       {user?.role === "USER" && (
         <div className={articleActions}>
-          <form onSubmit={handleSubmit(addComment)}>
+          <form onSubmit={handleSubmit(addComment)} className="w-full flex flex-col gap-4">
             <input
               type="text"
               {...register("comment")}
-              className={inputClass}
+            className={`${inputClass} w-full`}
               placeholder="Write your comment here..."
             />
-            <button type="submit" className="bg-amber-600 text-white px-5 py-2 rounded-2xl mt-5">
+            <button type="submit" className="bg-[#0066cc] text-white px-5 py-2 rounded-full w-fit">
               Add comment
             </button>
           </form>

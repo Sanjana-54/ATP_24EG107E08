@@ -12,16 +12,17 @@ import {
   loadingClass,
   errorClass,
   timestampClass,
+  inputClass,
 } from "../styles/common.js";
 
 function UserProfile() {
   const currentUser = useAuth((state) => state.currentUser);
-  console.log(currentUser)
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [articles, setArticles] = useState([]);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const getArticles = async () => {
@@ -52,6 +53,10 @@ function UserProfile() {
     });
   };
 
+  const filteredArticles = articles.filter((article) =>
+  article.title.toLowerCase().includes(search.toLowerCase())
+);
+
   const navigateToArticleByID = (articleObj) => {
     navigate(`/article/${articleObj._id}`, {
       state: articleObj,
@@ -63,14 +68,14 @@ function UserProfile() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-10">
+    <div className="max-w-5xl mx-auto px-4 md:px-6 py-8 md:py-10">
       {/* ERROR */}
       {error && <p className={errorClass}>{error}</p>}
 
       {/* PROFILE HEADER */}
-      <div className="bg-white border border-[#e8e8ed] rounded-3xl p-6 mb-8 shadow-sm flex items-center justify-between">
+      <div className="bg-white border border-[#e8e8ed] rounded-3xl p-6 mb-8 shadow-sm">
         {/* LEFT */}
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
           {/* Avatar */}
           {currentUser?.profileImageUrl ? (
             <img
@@ -98,6 +103,13 @@ function UserProfile() {
 
       {/* ARTICLES SECTION */}
       <div className="mt-4">
+        <input
+  type="text"
+  placeholder="Search articles..."
+  value={search}
+  onChange={(e) => setSearch(e.target.value)}
+  className={`${inputClass} mb-6`}
+/>
         <h3 className="text-lg font-semibold text-[#1d1d1f] mb-4">Latest Articles</h3>
 
         {/* EMPTY STATE */}
@@ -105,7 +117,7 @@ function UserProfile() {
           <p className="text-[#a1a1a6] text-sm text-center py-10">No articles available yet</p>
         ) : (
           <div className={articleGrid}>
-            {articles.map((articleObj) => (
+            {filteredArticles.map((articleObj) => (
               <div className={articleCardClass} key={articleObj._id}>
                 <div className="flex flex-col h-full">
                   {/* TOP */}

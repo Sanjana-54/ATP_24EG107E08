@@ -63,8 +63,9 @@ function EditArticle() {
   
 
   return (
-    <div className={`${formCard} mt-10`}>
-      <h2 className={formTitle}>Edit Article</h2>
+    <div className="max-w-3xl mx-auto px-4 py-6">
+  <div className={formCard}>
+      <h2 className="text-2xl md:text-3xl font-bold mb-6">Edit Article</h2>
       
 
       <form onSubmit={handleSubmit(updateArticle)}>
@@ -96,13 +97,14 @@ function EditArticle() {
         <div className={formGroup}>
           <label className={labelClass}>Content</label>
 
-          <textarea rows="14" className={inputClass} {...register("content", { required: "Content required" })} />
+          <textarea rows="14" className={`${inputClass} w-full`} {...register("content", { required: "Content required" })} />
 
           {errors.content && <p className={errorClass}>{errors.content.message}</p>}
         </div>
 
-        <button className={submitBtn}>Update Article</button>
+        <button className={`${submitBtn} w-full sm:w-auto`}>Update Article</button>
       </form>
+    </div>
     </div>
   );
 }

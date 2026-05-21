@@ -35,13 +35,13 @@ function WriteArticles() {
     //add authorId to articleObj
     articleObj.author = currentUser._id;
     try {
-         //set loading true
-         setLoading(true)
          //make POST req tp sav new artcile
          let res=await axios.post("https://blog-app-jc18.onrender.com/author-api/article",articleObj,{withCredentials:true})
          //navigate to AuthorArticles
          if(res.status===201){
-           toast.success("Article published successfully")
+           toast.success("Article published successfully"),{
+            duration:3000,
+           }
           navigate("/author-profile/articles");
          }
     } catch (err) {
@@ -52,8 +52,9 @@ function WriteArticles() {
   };
 
   return (
+     <div className="max-w-3xl mx-auto px-4 py-6">
     <div className={formCard}>
-      <h2 className={formTitle}>Write New Article</h2>
+      <h2 className="text-2xl md:text-3xl font-bold mb-6">Write New Article</h2>
 
       <form onSubmit={handleSubmit(submitArticle)}>
         {/* Title */}
@@ -62,7 +63,7 @@ function WriteArticles() {
 
           <input
             type="text"
-            className={inputClass}
+           className={`${inputClass} w-full`}
             placeholder="Enter article title"
             {...register("title", {
               required: "Title is required",
@@ -81,7 +82,7 @@ function WriteArticles() {
           <label className={labelClass}>Category</label>
 
           <select
-            className={inputClass}
+           className={`${inputClass} w-full`}
             {...register("category", {
               required: "Category is required",
             })}
@@ -117,12 +118,13 @@ function WriteArticles() {
         </div>
 
         {/* Submit */}
-        <button className={submitBtn} type="submit" disabled={loading}>
+        <button className={`${submitBtn} w-full sm:w-auto`} type="submit" disabled={loading}>
           {loading ? "Publishing..." : "Publish Article"}
         </button>
 
         {loading && <p className={loadingClass}>Publishing article...</p>}
       </form>
+    </div>
     </div>
   );
 }

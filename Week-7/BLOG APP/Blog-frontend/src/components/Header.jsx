@@ -38,7 +38,7 @@ function Header() {
 };
 
   return (
-    <nav className={navbarClass}>
+    <div className={`${navContainerClass} flex-col sm:flex-row gap-4`}>
       <div className={navContainerClass}>
 
         {/* LOGO */}
@@ -116,7 +116,7 @@ function Header() {
 
         </ul>
       </div>
-    </nav>
+    </div>
   );
 }
 

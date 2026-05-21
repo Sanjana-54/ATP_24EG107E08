@@ -4,7 +4,7 @@
 
 // ─── Layout ───────────────────────────────────────────
 export const pageBackground = "bg-white min-h-screen";
-export const pageWrapper = "max-w-5xl mx-auto px-6 py-16";
+export const pageWrapper = "max-w-5xl mx-auto px-4 md:px-6 py-10 md:py-16";
 export const section = "mb-14";
 
 // ─── Cards ────────────────────────────────────────────
@@ -12,8 +12,8 @@ export const cardClass =
   "bg-[#f5f5f7] rounded-2xl p-7 hover:bg-[#ebebf0] transition-colors duration-200 cursor-pointer";
 
 // ─── Typography ───────────────────────────────────────
-export const pageTitleClass = "text-5xl font-bold text-[#1d1d1f] tracking-tight leading-none mb-2";
-export const headingClass = "text-2xl font-bold text-[#1d1d1f] tracking-tight";
+export const pageTitleClass = "text-3xl md:text-5xl font-bold text-[#1d1d1f] tracking-tight leading-none mb-2";
+export const headingClass = "text-xl md:text-2xl font-bold text-[#1d1d1f] tracking-tight";
 export const subHeadingClass = "text-lg font-semibold text-[#1d1d1f] tracking-tight";
 export const bodyText = "text-[#6e6e73] leading-relaxed";
 export const mutedText = "text-sm text-[#a1a1a6]";
@@ -27,7 +27,7 @@ export const secondaryBtn =
 export const ghostBtn = "text-[#0066cc] font-medium hover:text-[#004499] transition-colors cursor-pointer text-sm";
 
 // ─── Forms ────────────────────────────────────────────
-export const formCard = "bg-[#f5f5f7] rounded-2xl p-10 max-w-4xl mx-auto";
+export const formCard = "bg-[#f5f5f7] rounded-2xl p-5 md:p-10 max-w-4xl mx-auto";
 export const formTitle = "text-2xl font-bold text-[#1d1d1f] tracking-tight text-center mb-7";
 export const labelClass = "text-xs font-medium text-[#6e6e73] mb-1.5 block";
 export const inputClass =
@@ -39,9 +39,9 @@ export const submitBtn =
 // ─── Navbar ───────────────────────────────────────────
 export const navbarClass =
   "bg-white/85 backdrop-blur-xl backdrop-saturate-150 border-b border-[#e8e8ed] px-8 h-[52px] flex items-center sticky top-0 z-50";
-export const navContainerClass = "max-w-5xl mx-auto w-full flex items-center justify-between";
+export const navContainerClass = "max-w-5xl mx-auto w-full flex flex-col sm:flex-row items-center justify-between gap-3";
 export const navBrandClass = "text-base font-semibold text-[#1d1d1f] tracking-tight";
-export const navLinksClass = "flex items-center gap-7";
+export const navLinksClass = "flex items-center flex-wrap justify-center gap-4 md:gap-7";
 export const navLinkClass = "text-[0.8rem] text-[#6e6e73] hover:text-[#1d1d1f] transition-colors font-normal";
 export const navLinkActiveClass = "text-[0.8rem] text-[#0066cc] font-medium";
 
@@ -49,7 +49,7 @@ export const navLinkActiveClass = "text-[0.8rem] text-[#0066cc] font-medium";
 //export const articleGrid        = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e8e8ed] border border-[#e8e8ed] rounded-2xl overflow-hidden"
 export const articleGrid = "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6";
 export const articleCardClass =
-  "bg-[#f5f5f7] p-7 hover:bg-[#ebebf0] transition-colors duration-200 flex flex-col gap-2.5 cursor-pointer";
+ "bg-[#f5f5f7] p-5 md:p-7 hover:bg-[#ebebf0] transition-colors duration-200 flex flex-col gap-2.5 cursor-pointer";
 export const articleTitle = "text-base font-semibold text-[#1d1d1f] leading-snug tracking-tight";
 export const articleExcerpt = "text-sm text-[#6e6e73] leading-relaxed";
 export const articleMeta = "text-xs text-[#a1a1a6]";
@@ -67,15 +67,14 @@ export const articleCategory = "text-[0.7rem] font-semibold uppercase tracking-w
 export const articleMainTitle = "text-4xl font-bold text-[#1d1d1f] leading-tight tracking-tight";
 
 export const articleAuthorRow =
-  "flex items-center justify-between border-t border-b border-[#e8e8ed] py-4 text-sm text-[#6e6e73]";
-
+ "flex items-center justify-between flex-wrap gap-3 border-t border-b border-[#e8e8ed] py-4 text-sm text-[#6e6e73]";
 export const authorInfo = "flex items-center gap-2 font-medium text-[#1d1d1f]";
 
 export const articleContent = "text-[#1d1d1f] leading-[1.9] text-[1rem] whitespace-pre-line mt-8";
 
 export const articleFooter = "border-t border-[#e8e8ed] mt-12 pt-6 text-sm text-[#a1a1a6]";
 // ─── Article Actions ─────────────────────────────
-export const articleActions = "flex gap-3 mt-6";
+export const articleActions = "flex flex-col sm:flex-row gap-3 mt-6";
 
 export const editBtn = "bg-[#0066cc] text-white text-sm px-4 py-2 rounded-full hover:bg-[#004499] transition";
 
