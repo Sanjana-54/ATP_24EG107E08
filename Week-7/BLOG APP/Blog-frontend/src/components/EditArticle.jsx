@@ -19,7 +19,7 @@ function EditArticle() {
   const location = useLocation();
   const navigate = useNavigate();
   const { id } = useParams();
-  const [success, setSuccess] = useState("");
+
 
   const article = location.state;
 
@@ -50,13 +50,13 @@ function EditArticle() {
     //naviagte to articleById component
     if(res.status===200){
 
-  setSuccess("Article updated successfully");
+  toast.success("Article updated successfully");
 
   setTimeout(() => {
     navigate(`/article/${article._id}`, {
       state: res.data.payload
     });
-  }, 1500);
+  },2000);
 }
   }
   
@@ -64,11 +64,7 @@ function EditArticle() {
   return (
     <div className={`${formCard} mt-10`}>
       <h2 className={formTitle}>Edit Article</h2>
-      {success && (
-    <p className="bg-green-100 text-green-700 px-4 py-2 rounded-xl mb-4">
-      {success}
-    </p>
-  )}
+      
 
       <form onSubmit={handleSubmit(updateArticle)}>
         {/* Title */}
