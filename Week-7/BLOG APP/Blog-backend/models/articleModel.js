@@ -31,10 +31,12 @@ const articleSchema=new Schema({
         type:String,
         required:[true,"Content is required"],
     },
-    likes:{
-   type:Number,
-   default:0
-},
+    likes: [
+      {
+         type: Types.ObjectId,
+         ref: "user"
+      }
+   ],
     comments:[commentSchema],
     isArticleActive:{
         type:Boolean,

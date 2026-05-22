@@ -27,15 +27,15 @@ function Home() {
 
   // fetch articles after login
   useEffect(() => {
-    if (!isAuthenticated) return;
+    //if (!isAuthenticated) return;
 
     const getArticles = async () => {
       setLoading(true);
 
       try {
         let res = await axios.get(
-          "https://blog-app-jc18.onrender.com/user-api/articles",
-          { withCredentials: true }
+          "https://blog-app-jc18.onrender.com/user-api/articles"
+
         );
 
         if (res.status === 200) {
@@ -43,7 +43,7 @@ function Home() {
         }
       } catch (err) {
         setError(
-          err.response?.data?.error || "Failed to fetch articles"
+          err.response?.data?.message || "Failed to fetch articles"
         );
       } finally {
         setLoading(false);
@@ -116,7 +116,7 @@ function Home() {
     <div className="min-h-screen max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10 md:py-14">
 
       {/* BEFORE LOGIN */}
-      {!isAuthenticated ? (
+     
 
         <div className="max-w-4xl pt-10 md:pt-16">
 
@@ -135,15 +135,15 @@ function Home() {
 
         </div>
 
-      ) : (
+   
 
-        <>
           {/* SEARCH */}
           <div className="mb-10">
-
+                 {isAuthenticated && (
             <p className="text-sm text-[#6e6e73] mb-2">
               Welcome back 👋
             </p>
+            )}
 
             <h2 className="text-3xl font-bold text-[#1d1d1f] mb-2">
               Latest Articles
@@ -214,7 +214,7 @@ function Home() {
 
                     {/* Likes */}
                     <p className="text-sm text-pink-500 mt-3">
-                      ❤️ {article.likes || 0} Likes
+                      ❤️ {article.likes?.length || 0} Likes
                     </p>
 
                   </div>
@@ -243,11 +243,10 @@ function Home() {
               ))}
             </div>
 
-          )}
-        </>
-      )}
+            )}
     </div>
   );
 }
 
 export default Home;
+

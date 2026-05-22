@@ -4,10 +4,10 @@ import { verifyToken } from '../middlewares/verifyToken.js'
 export const userApp=exp.Router()
 
 //read articles of all authors
-userApp.get("/articles",verifyToken("USER","AUTHOR","ADMIN"),async(req,res)=>{
+userApp.get("/articles",async(req,res)=>{
 //read articles
 const articlesList=await articleModel.find({isArticleActive:true});
-//send res
+//send response
 res.status(200).json({message:"Articles",payload:articlesList})
 })
 
@@ -40,18 +40,49 @@ await articleDocument.save()
 res.status(200).json({message:"comment added succesfully",payload:articleId})
 })
 
-userApp.put("/like/:articleId", verifyToken("USER","AUTHOR","ADMIN"), async(req,res)=>{
+// like article
+userApp.put(
+  "/like/:articleId",
+  verifyToken("USER", "AUTHOR", "ADMIN"),
+  async (req, res) => {
 
-   const { articleId } = req.params;
+    const { articleId } = req.params;
 
-   const updatedArticle = await articleModel.findByIdAndUpdate(
-      articleId,
-      { $inc: { likes: 1 } },
-      { new: true }
-   );
+    const userId = req.user.id;
 
-   res.status(200).json({
-      message:"Article liked",
-      payload:updatedArticle
-   })
-})
+    // find article
+    const article = await articleModel.findById(articleId);
+
+    if (!article) {
+      return res.status(404).json({
+        message: "Article not found"
+      })
+    }
+
+    // initialize likes array
+    if (!article.likes) {
+      article.likes = [];
+    }
+
+    // already liked
+    const alreadyLiked = article.likes.includes(userId);
+
+    if (alreadyLiked) {
+
+      return res.status(200).json({
+        message: "Already liked",
+        payload: article
+      })
+    }
+
+    // add userId to likes array
+    article.likes.push(userId);
+
+    await article.save();
+
+    res.status(200).json({
+      message: "Article liked successfully",
+      payload: article
+    })
+  }
+)
