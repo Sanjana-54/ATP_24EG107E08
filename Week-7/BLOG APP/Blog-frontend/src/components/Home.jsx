@@ -236,11 +236,9 @@ function Home() {
 
                     {/* Read Time */}
                     <p className="text-xs text-[#a1a1a6] mt-1">
-                      Estimated read:{" "}
                       {Math.ceil(
                         article.content.split(" ").length / 200
-                      )}{" "}
-                      min
+                      )}min read
                     </p>
 
                     {/* Likes */}
