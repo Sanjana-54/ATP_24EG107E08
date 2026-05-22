@@ -39,3 +39,19 @@ await articleDocument.save()
 //send res
 res.status(200).json({message:"comment added succesfully",payload:articleId})
 })
+
+userApp.put("/like/:articleId", verifyToken("USER","AUTHOR","ADMIN"), async(req,res)=>{
+
+   const { articleId } = req.params;
+
+   const updatedArticle = await articleModel.findByIdAndUpdate(
+      articleId,
+      { $inc: { likes: 1 } },
+      { new: true }
+   );
+
+   res.status(200).json({
+      message:"Article liked",
+      payload:updatedArticle
+   })
+})
