@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { useAuth } from "../Store/AuthStore";
+import { toast } from "react-hot-toast";
+
 
 import {
   articleGrid,
@@ -69,6 +71,15 @@ function Home() {
 
   // like article
   const likeArticle = async (articleId) => {
+
+  // not logged in
+  if (!isAuthenticated) {
+    toast.error("Please login to like articles ❤️");
+    return;
+  }
+
+  try {
+
     let res = await axios.put(
       `https://blog-app-jc18.onrender.com/user-api/like/${articleId}`,
       {},
@@ -76,6 +87,18 @@ function Home() {
     );
 
     if (res.status === 200) {
+
+      // already liked
+      if (res.data.message === "Already liked") {
+
+        toast("You already liked this article ❤️");
+
+      } else {
+
+        toast.success("Article liked ❤️");
+
+      }
+
       setArticles((prev) =>
         prev.map((article) =>
           article._id === articleId
@@ -84,8 +107,14 @@ function Home() {
         )
       );
     }
-  };
 
+  } catch (err) {
+
+    toast.error("Login required to like articles");
+
+  }
+};
+ 
   // date formatter
   const formatDate = (date) => {
     return new Date(date).toLocaleString("en-IN", {
