@@ -10,4 +10,4 @@ This folder contains basic JavaScript programs practiced as part of Week 1 assig
 - Practice with loops, functions, and array methods
 
 ## Usage
-Run the files using Node.js:
+Run the files using Node.js:.

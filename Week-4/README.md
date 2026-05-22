@@ -32,4 +32,4 @@ A slightly more complex webpage representing a simple profile for "Pochi the Cat
 An external stylesheet linked to `webpage_3.html` to provide basic visual styling and formatting to the HTML elements.
 
 ## How to Run
-Simply clone this repository and open any of the `.html` files in your preferred web browser to view the pages.
+Simply clone this repository and open any of the `.html` files in your preferred web browser to view the pages..

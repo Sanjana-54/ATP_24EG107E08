@@ -90,4 +90,4 @@ CLOUDINARY_API_SECRET=your_api_secret
 
 
 
-Developed as a Capstone Project.
+Developed as a Capstone Project..

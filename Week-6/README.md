@@ -92,4 +92,4 @@ This application requires both the backend and frontend servers to be running si
 
 - **Frontend**: React, Vite, Tailwind CSS, React Router, React Hook Form, Context API, Axios, Fetch API
 - **Backend**: Node.js, Express.js, MongoDB, Mongoose, CORS, dotenv
-- **Tooling**: npm
+- **Tooling**: npm.

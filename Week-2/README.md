@@ -19,4 +19,4 @@ This directory contains coding exercises focusing on core JavaScript features, a
 - **Modern JavaScript Features**: Practiced modules, spread/rest operators, and clean code structure.
 - **Array Manipulation**: Worked with powerful array methods like `map`, `filter`, and `reduce`.
 - **Shallow vs Deep Copy**: Learned how data is copied and managed in JavaScript objects and arrays.
-- **Asynchronous JavaScript**: Explored timer functions and delayed code execution using `setTimeout` and `setInterval`.
+- **Asynchronous JavaScript**: Explored timer functions and delayed code execution using `setTimeout` and `setInterval`..

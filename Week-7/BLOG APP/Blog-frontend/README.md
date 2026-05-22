@@ -74,4 +74,4 @@ Example:
 VITE_API_URL=http://localhost:5000
 ```
 
-Developed as a Capstone Project.
+Developed as a Capstone Project..
