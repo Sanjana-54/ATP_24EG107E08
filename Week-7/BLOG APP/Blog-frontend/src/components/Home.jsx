@@ -158,9 +158,7 @@ function Home() {
             from passionate writers around the world.
           </p>
 
-          <h3 className="text-xl sm:text-2xl font-semibold text-blue-400 mt-12">
-            Log In To Find Latest Articles!!
-          </h3>
+         
 
         </div>
 
@@ -231,6 +229,10 @@ function Home() {
                     <p className={`${timestampClass} mt-4`}>
                       {formatDate(article.createdAt)}
                     </p>
+                    <p className="text-sm text-[#6e6e73] mt-1">
+                          By {article.author?.firstname}
+                       </p>
+
 
                     {/* Read Time */}
                     <p className="text-xs text-[#a1a1a6] mt-1">

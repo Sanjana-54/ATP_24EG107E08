@@ -6,7 +6,9 @@ export const userApp=exp.Router()
 //read articles of all authors
 userApp.get("/articles",async(req,res)=>{
 //read articles
-const articlesList=await articleModel.find({isArticleActive:true});
+const articlesList = await articleModel
+  .find({ isArticleActive: true })
+  .populate("author", "firstname email");
 //send response
 res.status(200).json({message:"Articles",payload:articlesList})
 })
