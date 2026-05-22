@@ -126,7 +126,7 @@ function AuthorArticles() {
             <p className="text-xs text-[#a1a1a6] mt-1">
               {Math.ceil(
                 article.content.split(" ").length / 200
-              )} min read
+              )} estimated time to read
             </p>
 
           </div>

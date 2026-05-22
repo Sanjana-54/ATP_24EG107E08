@@ -31,6 +31,10 @@ const articleSchema=new Schema({
         type:String,
         required:[true,"Content is required"],
     },
+    likes:{
+   type:Number,
+   default:0
+},
     comments:[commentSchema],
     isArticleActive:{
         type:Boolean,
